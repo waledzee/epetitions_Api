@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\PetitionController;
 use App\Models\petition;
 use Illuminate\Http\Request;
@@ -20,3 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('/petitions',PetitionController::class );
+
+Route::resource('/authors', AuthorController::class)->only(
+    [
+        'index','show'
+    ]
+    );
