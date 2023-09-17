@@ -16,7 +16,10 @@ class PetitionController extends Controller
      */
     public function index()
     {
-        return PetitionResource::collection(petition::all());
+        // return PetitionResource::collection(petition::all());
+
+        return response()->json(new petitionCollection(petition::all()) ,204);
+
     }
 
     /**
@@ -71,6 +74,8 @@ class PetitionController extends Controller
      */
     public function destroy(petition $petition)
     {
-        //
+        $petition->delete();
+
+        return response()->json(null ,204);
     }
 }
