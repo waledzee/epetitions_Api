@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Author;
 use App\Models\petition;
 use Illuminate\Database\Seeder;
 
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         petition::factory(50)->create();
+        Author::factory(10)->create();
     }
 }
