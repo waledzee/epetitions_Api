@@ -18,6 +18,8 @@ class PetitionResource extends JsonResource
             'id'=>$this->id,
             'title'=>$this->title,
             'author'=>$this->author,
+            'description'=>$this->description,
+            'signees'=>$this->signees,
         ];
     }
 }

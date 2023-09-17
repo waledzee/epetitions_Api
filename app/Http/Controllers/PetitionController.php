@@ -27,7 +27,11 @@ class PetitionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $petition =petition::create($request->only(
+            [
+                'title','description','category','author','signees'
+            ]
+            ));
     }
 
     /**
@@ -39,6 +43,7 @@ class PetitionController extends Controller
     public function show(petition $petition)
     {
         //
+        return new PetitionResource($petition);
     }
 
     /**
@@ -50,7 +55,12 @@ class PetitionController extends Controller
      */
     public function update(Request $request, petition $petition)
     {
-        //
+        $petition->update($request->only(
+            [
+                'title','description','category','author','signees',''
+            ]
+            ));
+            return new PetitionResource($petition);
     }
 
     /**
